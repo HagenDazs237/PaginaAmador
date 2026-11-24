@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	<title>Mi primera página web</title>
+
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body {
+			font-family: 'Segoe UI', Arial, sans-serif;
+			background: #f1f5f9;
+			color: #334155;
+			line-height: 1.8;
+		}
+
+		header {
+			background: linear-gradient(135deg, #1e3a8a, #2563eb);
+			color: white;
+			text-align: center;
+			padding: 50px 20px;
+			box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+		}
+
+		header h1 {
+			font-size: 36px;
+			letter-spacing: 1px;
+		}
+
+		main {
+			max-width: 1000px;
+			margin: 40px auto;
+			padding: 0 25px;
+		}
+
+		.contenido {
+			background: white;
+			padding: 35px;
+			margin-bottom: 30px;
+			border-radius: 14px;
+			border-left: 5px solid #2563eb;
+			box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+		}
+
+		h2 {
+			color: #1e3a8a;
+			font-size: 25px;
+			margin-bottom: 20px;
+			padding-bottom: 10px;
+			border-bottom: 2px solid #dbeafe;
+		}
+
+		h3, h4, h5, h6 {
+			color: #2563eb;
+			margin: 12px 0;
+		}
+
+		h3 { font-size: 22px; }
+		h4 { font-size: 19px; }
+		h5 { font-size: 17px; }
+		h6 { font-size: 15px; }
+
+		p {
+			margin-bottom: 18px;
+			font-size: 16px;
+			text-align: justify;
+			color: #475569;
+		}
+
+		mark {
+			background: #dbeafe;
+			color: #1e3a8a;
+			padding: 2px 5px;
+			border-radius: 4px;
+		}
+
+		blockquote {
+			background: #eff6ff;
+			border-left: 4px solid #2563eb;
+			padding: 20px;
+			margin: 25px 0;
+			border-radius: 0 10px 10px 0;
+			font-style: italic;
+			color: #1e3a8a;
+		}
+
+		hr {
+			border: none;
+			border-top: 2px solid #dbeafe;
+			margin: 30px 0;
+		}
+
+		.imagenes {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: center;
+			gap: 25px;
+			margin: 25px 0;
+		}
+
+		.imagenes img {
+			width: 200px;
+			max-width: 100%;
+			height: auto;
+			border-radius: 12px;
+			box-shadow: 0 5px 18px rgba(0,0,0,0.13);
+			transition: transform 0.3s ease;
+		}
+
+		.imagenes img:hover {
+			transform: scale(1.05);
+		}
+
+		a {
+			color: #2563eb;
+			font-weight: 600;
+			text-decoration: none;
+			transition: color 0.3s ease;
+		}
+
+		a:hover {
+			color: #1e3a8a;
+			text-decoration: underline;
+		}
+
+		.enlaces a {
+			display: inline-block;
+			background: #2563eb;
+			color: white;
+			padding: 10px 20px;
+			margin: 7px 5px 7px 0;
+			border-radius: 7px;
+			text-decoration: none;
+			transition: background 0.3s ease;
+		}
+
+		.enlaces a:hover {
+			background: #1e3a8a;
+		}
+
+		form {
+			background: #f8fafc;
+			padding: 25px;
+			border-radius: 12px;
+			border: 1px solid #e2e8f0;
+		}
+
+		form div {
+			margin-bottom: 15px;
+		}
+
+		label {
+			display: inline-block;
+			font-weight: 600;
+			color: #1e3a8a;
+			margin-bottom: 6px;
+		}
+
+		input[type="text"],
+		input[type="email"],
+		input[type="number"],
+		input[type="date"],
+		textarea,
+		select {
+			width: 100%;
+			padding: 12px;
+			border: 1px solid #cbd5e1;
+			border-radius: 7px;
+			font-family: inherit;
+			font-size: 15px;
+			background: white;
+			color: #334155;
+			outline: none;
+			transition: border 0.3s ease, box-shadow 0.3s ease;
+		}
+
+		input:focus,
+		textarea:focus,
+		select:focus {
+			border-color: #2563eb;
+			box-shadow: 0 0 0 3px rgba(37,99,235,0.12);
+		}
+
+		textarea {
+			min-height: 110px;
+			resize: vertical;
+		}
+
+		input[type="radio"],
+		input[type="checkbox"] {
+			accent-color: #2563eb;
+			margin-right: 7px;
+		}
+
+		input[type="submit"] {
+			background: #2563eb;
+			color: white;
+			padding: 12px 25px;
+			border: none;
+			border-radius: 7px;
+			font-size: 15px;
+			font-weight: 600;
+			cursor: pointer;
+			transition: background 0.3s ease;
+		}
+
+		input[type="submit"]:hover {
+			background: #1e3a8a;
+		}
+
+		.lista {
+			padding-left: 30px;
+			margin-top: 15px;
+		}
+
+		.lista li {
+			padding: 4px 0;
+			color: #475569;
+		}
+
+		.lista ul {
+			padding-left: 30px;
+		}
+
+		table {
+			width: 100%;
+			border-collapse: collapse;
+			overflow: hidden;
+			border-radius: 10px;
+			box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+			background: white;
+		}
+
+		th {
+			background: #1e3a8a;
+			color: white;
+			padding: 15px;
+			text-align: left;
+		}
+
+		td {
+			padding: 14px 15px;
+			border-bottom: 1px solid #e2e8f0;
+		}
+
+		tbody tr:nth-child(even) {
+			background: #eff6ff;
+		}
+
+		tbody tr:hover {
+			background: #dbeafe;
+		}
+
+		@media (max-width: 600px) {
+			header {
+				padding: 35px 15px;
+			}
+
+			header h1 {
+				font-size: 27px;
+			}
+
+			main {
+				margin: 25px auto;
+				padding: 0 15px;
+			}
+
+			.contenido {
+				padding: 22px;
+			}
+
+			h2 {
+				font-size: 21px;
+			}
+
+			p {
+				font-size: 15px;
+			}
+
+			.imagenes {
+				flex-direction: column;
+			}
+
+			table {
+				font-size: 13px;
+			}
+
+			th, td {
+				padding: 10px 7px;
+				overflow-wrap: anywhere;
+			}
+		}
+	</style>
+</head>
+
+<body>
+
+	<header>
+		<h1>La primera web de 2º de BACH</h1>
+	</header>
+
+	<main>
+
+		<section class="contenido">
+			<h2>Ya mismo la PAU</h2>
+			<h3>Adivina lo que es</h3>
+			<h4><mark>Está urge</mark></h4>
+			<h5>De que es el bocata</h5>
+			<h6>Bacon y queso</h6>
+
+			<hr>
+
+			<p>Esto es un párrafo</p>
+
+			<p><b>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam porta, felis sed iaculis tempus, nulla diam finibus elit, et aliquet augue purus ut augue. Cras tincidunt mollis est, sit amet interdum turpis scelerisque vel. <i>Sed vulputate porttitor turpis ac hendrerit.</b> Nullam eu <u>ipsum vitae tortor tempus</u> convallis ut ut nisi.</i> Integer luctus maximus sem, sed dictum lorem ornare eu. Duis tempus, orci imperdiet pulvinar porttitor, felis ex feugiat est, quis cursus ipsum nulla vitae velit. Duis vel mattis justo. Nunc consequat ipsum quis odio ultricies, sit amet tincidunt lorem malesuada. Aenean ultricies pretium sapien, mollis mollis libero lobortis in.</p>
+
+			<p>Aprendiendo <abbr title="HyperText Markup Language">HTML</abbr> en la clase de TIC</p>
+
+			<blockquote>"Mi vida se desmorona como un casino de naipes"</blockquote>
+
+			<br>
+			<br>
+
+			<p>Este es un párrafo más alejado</p>
+		</section>
+
+		<section class="contenido">
+			<h2>Imágenes</h2>
+
+			<div class="imagenes">
+				<a href="https://es.wikipedia.org/wiki/Real_Betis_Balompi%C3%A9" target="_blank">
+					<img src="Amador.webp" alt="AmadorRivas">
+				</a>
+
+				<img src="https://static.que.es/wp-content/uploads/2023/01/1_DJx6gRtsaLcYkozvUBPH2Fm49qW7N38E5.jpg">
+			</div>
+
+			<hr>
+
+			<h2>Enlaces</h2>
+
+			<div class="enlaces">
+				<a href="https://www.primevideo.com/offers/nonprimehomepage?ref_=dv_web_force_root&_ssoLoop=1" target="_blank">Ir a Prime Video</a>
+
+				<a href="Capitansalami.webp">Clic aquí para ver al Capitán Salami</a>
+
+				<a href="https://static.que.es/wp-content/uploads/2023/01/1_DJx6gRtsaLcYkozvUBPH2Fm49qW7N38E5.jpg">Clic para ver a Amador con gomina</a>
+			</div>
+		</section>
+
+		<section class="contenido">
+			<h2>Formulario</h2>
+
+			<form>
+				<div>
+					<label>Nombre</label>
+					<input type="text" name="Nombre" placeholder="Introduce tu nombre">
+				</div>
+
+				<div>
+					<label>Apellido</label>
+					<input type="text" name="Apellido">
+				</div>
+
+				<div>
+					<label>Correo</label>
+					<input type="email" name="Correo">
+				</div>
+
+				<div>
+					<label>Escribe tu mensaje</label>
+					<textarea name="Mensaje"> Mensaje </textarea>
+				</div>
+
+				<div>
+					<label>Género</label>
+					<select name="Género">
+						<option value="Masculino">Masculino</option>
+						<option value="Femenino">Femenino</option>
+						<option value="None">Prefiero no decirlo</option>
+					</select>
+				</div>
+
+				<div>
+					<label>Género</label><br>
+					<input type="radio" name="Género" value="Masculino">Masculino<br>
+					<input type="radio" name="Género" value="Femenino">Femenino<br>
+					<input type="radio" name="Género" value="Prefiero no decirlo">Prefiero no decirlo<br>
+				</div>
+
+				<div>
+					<label>Edad</label>
+					<input type="number" name="Edad">
+				</div>
+
+				<div>
+					<label>Cumpleaños</label>
+					<input type="date" name="Cumple">
+				</div>
+
+				<div>
+					<label>Bici</label>
+					<input type="checkbox" name="Vehículo">
+				</div>
+
+				<div>
+					<label>Coche</label>
+					<input type="checkbox" name="Vehículo">
+				</div>
+
+				<div>
+					<input type="submit" value="Enviar formulario">
+				</div>
+			</form>
+		</section>
+
+		<section class="contenido">
+			<h2>Listas</h2>
+
+			<label>Top peores asignaturas</label>
+			<ol class="lista">
+				<li>Filosofía</li>
+				<li>Física</li>
+				<li>Historia</li>
+				<li>Matemáticas</li>
+			</ol>
+
+			<br>
+
+			<label>Top personajes de LQSA</label>
+			<ul class="lista">
+				<li>Antonio Recio
+					<ul>
+						<li>Si quiere una cena de gala, llevese una cigala.</li>
+					</ul>
+				</li>
+				<li>Amador Rivas</li>
+				<li>Fermín Trujillo</li>
+				<li>Maximo Angulo</li>
+			</ul>
+		</section>
+
+		<section class="contenido">
+			<h2>Tablas</h2>
+
+			<table>
+				<thead>
+					<tr>
+						<th>Nombre</th>
+						<th>Teléfono</th>
+						<th>Edad</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr>
+						<td>El Vampiricántropo</td>
+						<td>989 898 989</td>
+						<td>22800</td>
+					</tr>
+
+					<tr>
+						<td>El payaso justiciero</td>
+						<td>000 000 001</td>
+						<td>12</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+
+	</main>
+
+</body>
+</html>
